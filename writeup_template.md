@@ -53,8 +53,10 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
+ORIGINAL
 ![alt text][image0]
 
+UNDISTORTED
 ![alt text][image1]
 
 
@@ -113,7 +115,9 @@ The steps of this project are the following:
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 
-![alt text][image4]![alt text][image5]
+![alt text][image4]
+
+![alt text][image5]
 
 
 ####  Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
