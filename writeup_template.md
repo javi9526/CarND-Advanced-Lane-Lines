@@ -37,7 +37,7 @@ The goals / steps of this project are the following:
 
 [image6]: ./output_images/sliding_windows.jpg "Sliding windows" 
 [image7]: ./output_images/search_around_poly.jpg "Search around poly"
-[image8]: ./output_images/test_images/test4 "Warped lane detection"
+[image8]: ./output_images/test_images/test4.jpg "Warped lane detection"
 
 [video1]: ./project_video_output.mp4 "Video"
 
@@ -117,12 +117,6 @@ The steps of this project are the following:
 * Determine the curvature of the lane and vehicle position with respect to center.
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
-
-
-![alt text][image4]
-
-![alt text][image5]
-
 
 ####  Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
