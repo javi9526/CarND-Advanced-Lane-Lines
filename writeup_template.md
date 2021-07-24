@@ -63,29 +63,32 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 In this section, we will estimate the perspective transform matrix to obtain an eye bird vision of the lane.
 
-The code for this step is contained in the second, third, fourth and fifth code cells of the IPython notebook located in "./P2.ipynb".  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for this step is contained in the second, third, fourth and fifth code cells of the IPython notebook located in "./P2.ipynb".  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the source and destination points using the image with yellow lines `test_images/straight_lines2.jpg` provided in the following manner:
 
 ```python
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
+
+# Source coordinates
+src_yellow = np.float32(
+    [[591,450],
+     [688,450],
+     [1050,674],
+     [257,674]])
+# Destination coordinates
+dst_yellow = np.float32([
+    [257,0],
+    [1050,0],
+    [1050,674],
+    [257,674]])
 ```
 
 This resulted in the following source and destination points:
 
 | Source        | Destination   | 
 |:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
+| 591, 450      | 2570, 0       | 
+| 688, 450      | 1050, 0       |
+| 1050, 675     | 1050, 675     |
+| 257, 675      | 257, 675      |
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
@@ -110,22 +113,22 @@ The steps of this project are the following:
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 
-![alt text][image4]
-
-![alt text][image5]
+![alt text][image4]![alt text][image5]
 
 
-#### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
+####  Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 Then I implemented sliding windows to obtaing the points of the lane lines and fit a 2nd order polynomial for each line. 
 The code for this step is contained in the sixth code cell of the IPython notebook located in "./P2.ipynb", in lines 50 through 190.
 
-After, I upgraded it in eighth cell in lines 50 to 220.
+
+
+After, when applying the pipeline to the video, I upgraded it in eighth cell in lines 50 to 220, adding the `search_around_poly()`. This one finds lane lines points searching in a bounded region around the polinomial function calculated before with sliding windows method. It is lighter.
 
 
 ![alt text][image6]
 
-#### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
+#### Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 For the radius of curvature, I did applied the formula that uses the fit polynomial coefficients in lines 240 through 250 in the sixth cell of the IPython notebook located in "./P2.ipynb".
 
