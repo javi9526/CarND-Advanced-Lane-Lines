@@ -26,8 +26,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image0]: ./camera_cal/calibration4.jpg "Original"
-[image1]: ./output_images/Undist/calibration4.jpg "Undistorted"
+[image0]: ./camera_cal/calibration1.jpg "Original"
+[image1]: ./output_images/Undist/calibration1.jpg "Undistorted"
 
 [image2]: ./output_images/Perspective/straight_lines8.jpg "Original"
 [image3]: ./output_images/Perspective/straight_lines_warped.jpg "Road Transformed"
