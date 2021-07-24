@@ -110,9 +110,9 @@ The steps of this project are the following:
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 
-![alt text][image2]
+![alt text][image4]
 
-![alt text][image3]
+![alt text][image5]
 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
