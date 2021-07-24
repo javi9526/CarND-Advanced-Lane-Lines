@@ -35,8 +35,10 @@ The goals / steps of this project are the following:
 [image4]: ./test_images/test4.jpg "Image Example"
 [image5]: ./output_images/test_images/test4.jpg "Image with lane detection"
 
-[image6]: ./output_images/polyfit/test4.jpg "Polyfit" 
-[image7]: ./output_images/test_images/test4.jpg "Output"
+[image6]: ./output_images/sliding_windows.jpg "Sliding windows" 
+[image7]: ./output_images/search_around_poly.jpg "Search around poly"
+[image8]: ./output_images/test_images/test4 "Warped lane detection"
+
 [video1]: ./project_video_output.mp4 "Video"
 
 
@@ -94,8 +96,10 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
+ORIGINAL
 ![alt text][image2]
 
+WARPED
 ![alt text][image3]
 
 
@@ -122,23 +126,28 @@ The steps of this project are the following:
 
 ####  Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I implemented sliding windows to obtaing the points of the lane lines and fit a 2nd order polynomial for each line. 
-The code for this step is contained in the sixth code cell of the IPython notebook located in "./P2.ipynb", in lines 50 through 190.
+To obtain the lane lines pixels and fit their positions I used the `fit_poly_and_color_lane_lines()` functions, which is implemented in the eighth cell, in lines 187 through 120. 
 
+At first, this function finds the lane lines pixels by calling `find_lane_pixels()` (sliding windows method, implemented in lines 50 through 190 in the same cell) or `search_around_poly()` (finds lane lines points searching in a bounded region around the polinomial function calculated before with sliding windows method). The election of the method depends on the sanity check.
 
+Once we have the lane lines points, its time to do a 2nd polynomial fit for each line.
 
-After, when applying the pipeline to the video, I upgraded it in eighth cell in lines 50 to 220, adding the `search_around_poly()`. This one finds lane lines points searching in a bounded region around the polinomial function calculated before with sliding windows method. It is lighter.
-
-
+IMAGEN SLIDING WINDOWS
 ![alt text][image6]
+
+IMAGEN SEARCH AROUND POLY
+![alt text][image7]
+
+LANE DETECTION
+![alt text][image8]
 
 #### Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 For the radius of curvature, I did applied the formula that uses the fit polynomial coefficients in lines 240 through 250 in the sixth cell of the IPython notebook located in "./P2.ipynb".
 
-#### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
+#### Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-For plotting the result back, I implemented the same perspective transform of the lane lines image at first. In this case, with the inverse matrix. This is made in line 45 in in the 10th code cell of the IPython notebook located in "./P2.ipynb". Then I weighte that image with the original undistored. The result is:
+For plotting the result back, I implemented the same perspective transform of the lane lines image at first. In this case, with the inverse matrix. This is made in line 45 in in the 10th code cell of the IPython notebook located in "./P2.ipynb". Then I weighted that image with the original undistored. The result is:
 
 
 ![alt text][image7]
