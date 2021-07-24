@@ -9,6 +9,7 @@ The project is divided into 4 parts:
 2. Calculate perspective transform.
 3. Image lane finding.
 4. Video lane finding.
+5. Possible improvements.
 
 ---
 **Advanced Lane Finding Project**
@@ -152,6 +153,14 @@ For plotting the result back, I implemented the same perspective transform of th
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
 Here's a [link to my video result](./project_video_output.mp4)
+
+
+
+## 5. Possible improvements to the pipeline.
+
+A possible improvement would be to adjust the pipeline thresholding parameters. and get a more robust, accurate and less shaking result. The radius result is very fast changing.
+
+I'd like to have more time to apply some assertions and loggins.
 
 
 
