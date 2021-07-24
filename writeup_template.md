@@ -32,12 +32,11 @@ The goals / steps of this project are the following:
 [image2]: ./output_images/Perspective/straight_lines8.jpg "Original"
 [image3]: ./output_images/Perspective/straight_lines_warped.jpg "Road Transformed"
 
-[image4]: ./test_images/test4.jpg "Image Example"
-[image5]: ./output_images/test_images/test4.jpg "Image with lane detection"
+[image4]: ./output_images/sliding_windows.jpg "Sliding windows" 
+[image5]: ./output_images/search_around_poly.jpg "Search around poly"
+[image6]: ./output_images/polyfit/test4.jpg "Warped lane lines fitted"
 
-[image6]: ./output_images/sliding_windows.jpg "Sliding windows" 
-[image7]: ./output_images/search_around_poly.jpg "Search around poly"
-[image8]: ./output_images/test_images/test4.jpg "Warped lane detection"
+[image7]: ./output_images/test_images/test4.jpg "Image with lane detection"
 
 [video1]: ./project_video_output.mp4 "Video"
 
@@ -127,13 +126,13 @@ At first, this function finds the lane lines pixels by calling `find_lane_pixels
 Once we have the lane lines points, its time to do a 2nd polynomial fit for each line.
 
 IMAGEN SLIDING WINDOWS
-![alt text][image6]
+![alt text][image4]
 
 IMAGEN SEARCH AROUND POLY
-![alt text][image7]
+![alt text][image5]
 
 LANE DETECTION
-![alt text][image8]
+![alt text][image6]
 
 #### Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
